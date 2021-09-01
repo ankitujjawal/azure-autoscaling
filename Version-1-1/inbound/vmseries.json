@@ -126,6 +126,18 @@
                 "description": "Application Gateway Backend Pool Name"
             }
         },
+        "intLbName": {
+            "type": "string",
+            "metadata": {
+                "description": "Int LB name Name"
+            }
+        },
+        "intLbBePoolName": {
+            "type": "string",
+            "metadata": {
+                "description": "int LB Backend Pool Name"
+            }
+        },
         "appInsightsName": {
             "type": "string",
             "metadata": {
@@ -323,7 +335,11 @@
                                     "properties": {
                                         "subnet": {
                                             "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'), '/subnets/', parameters('subnetNameTrust'))]"
-                                        }
+                                        },
+                                        "loadBalancerBackendAddressPools": [
+                                        {
+                                            "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', parameters('intLbName'), '/backendAddressPools/', parameters('intLbBePoolName'))]"
+                                        }]
                                     }
                                 }]
                             }
