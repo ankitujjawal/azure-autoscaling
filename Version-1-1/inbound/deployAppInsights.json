@@ -8,7 +8,7 @@
         },
         "appInsightsRegion":{
             "type": "string",
-            "defaultValue" : "eastus"
+            "defaultValue" : "australiasoutheast"
         },
     },
     "variables": {
